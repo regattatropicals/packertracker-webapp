@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web app for the Regatta Tropicals Packer Tracker",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --hot --inline",
     "build": "webpack --mode production"
   },
   "repository": {
