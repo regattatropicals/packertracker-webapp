@@ -58,7 +58,7 @@ module.exports = {
         index: 'login.html',
         proxy: {
             '/login': 'http://localhost:33456',
-            '/api': 'http://localhost:33456'
+            '/api/**': 'http://localhost:33456'
         }
     }
 };
