@@ -24,8 +24,9 @@
             }
             lastClick = Date.now();
 
-            const res = await fetch('/login', {
+            const res = await fetch('/api/login', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Accept': 'application/text',
                     'Content-Type': 'application/json'
@@ -40,18 +41,16 @@
                     <i class="material-icons">error</i> Invalid username or password!
                 `;
                 return;
+            } else {
+                document.getElementById('login-message').innerHTML = '';
             }
-            const tokenBuffer = await res.body.getReader().read();
-            const token = new TextDecoder("utf-8").decode(tokenBuffer.value);
-            fetch('/app', {
+            fetch('/app.html', {
+                method: 'GET',
+                credentials: 'include',
                 headers: {
                     'Accept': 'application/text',
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: document.getElementById('username').value,
-                    password: document.getElementById('password').value
-                })
+                }
             });
         }
 

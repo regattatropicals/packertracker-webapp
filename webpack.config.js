@@ -53,12 +53,12 @@ module.exports = {
     plugins: [ appHtmlPlugin, loginHtmlPlugin ],
 
     devServer: {
+        https: true,
         contentBase: 'dist',
         watchContentBase: true,
         index: 'login.html',
         proxy: {
-            '/login': 'http://localhost:33456',
-            '/api/**': 'http://localhost:33456'
+            '/api/*': 'http://localhost:33456'
         }
     }
 };
